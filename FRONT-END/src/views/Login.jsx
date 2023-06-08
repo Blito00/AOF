@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, Image, Text, ImageBackground } from 'react-native';
 import { Button } from 'react-native-elements';
+import { moderateScale, scale, verticalScale, ScaledSheet } from 'react-native-size-matters';
+
+
+// const scaledWidth = scale(200);
+// const scaledHeight = verticalScale(950);
+// const scaledFontSize = moderateScale(16);
+// const scaledMargin = moderateScale(10);
+
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -47,36 +55,36 @@ const Login = () => {
     );
 };
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
     },
     input: {
-        height: 40,
-        width: 300,
-        margin: 10,
-        padding: 10,
-        borderWidth: 0.1,
+        height: '80vs',
+        width: '300@s',
+        margin: '10@ms',
+        padding: '10@ms',
+        borderWidth: '0.1@s',
         borderRadius: 20,
         backgroundColor: '#FFFF'
     },
     button: {
         backgroundColor: 'black',
         borderRadius: 16,
-        marginHorizontal: 100,
-        marginBottom: 100
+        marginHorizontal: '100@ms',
+        marginBottom: '100@ms'
     },
     buttonText: {
-        fontSize: 16,
+        fontSize: '16@ms',
         fontWeight: 'bold',
     },
     imageContainer: {
         alignItems: 'center',
-        marginBottom: -30
+        marginBottom: '-30@ms'
     },
     img: {
-        width: '80%',
+        width: '50@s',
         height: undefined,
         aspectRatio: 1,
         resizeMode: 'contain',

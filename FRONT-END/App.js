@@ -1,30 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
-import Login from './src/views/Login';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Home from './src/views/Home.jsx'
+import Login from './src/views/Login.jsx';
 
 
 
 export default function App() {
+  // instanciamos nuestro Stack que nos ayudara para crear la navegacion y las pantallas
+  const Stack = createNativeStackNavigator();
+
   return (
-    <ImageBackground
-        source={require('./assets/img/fondo5.png')}
-        style={styles.background}>
-    <View style={styles.container}>
-      <Login/>
+    <>
+      <NavigationContainer>
+
+        <Stack.Navigator initialRouteName="home">
+
+<Stack.Screen name="home" options={{headerShown: false}} component={Home}/>
+
+<Stack.Screen name="login" options={{headerShown: false}} component={Login}/>
+
+        </Stack.Navigator>
+      </NavigationContainer>
       <StatusBar style="auto" />
-    </View>
-    </ImageBackground>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  background: {
-    flex: 1,
-    resizeMode: 'cover'
-  },
-});
