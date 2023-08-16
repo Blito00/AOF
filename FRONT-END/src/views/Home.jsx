@@ -7,39 +7,26 @@ export default function Home({ navigation }) {
 
 
     return (
-
-        <ImageBackground
-            source={require('../../assets/img/fondo5.png')}
-            style={styles.background}>
             <View style={styles.container}>
             <Image
                     source={require('../../assets/img/LOGO-AOF2.png')}
                 style={styles.image}/>
-            </View>
-            <View style={styles.container}>
-                
                 <Text style={styles.text}>Bienvenid@ a Oficios Formosa!</Text>
-                <Text style={styles.text1}>
-                    ¡¿Ofrece un oficio?! Ingrese en "Ofrecer".
-                </Text>
                 <Button
                     onPress={() => { navigation.navigate('login') }}
-                    title="Ofrecer"
-                    color="green"
-                />
-                <Text style={styles.text1}>
-                    ¡¿Busca un profesional?! Pulse en "Buscar".
-                </Text>
-                <Button
-                    onPress={() => { navigation.navigate('login') }}
-                    title="Buscar"
+                    title="Ofrecer un oficio!"
                     buttonStyle={styles.button}
                     titleStyle={styles.buttonText}
                 />
+                <Button
+                    onPress={() => { navigation.navigate('login') }}
+                    title="Buscar un oficio!"
+                    buttonStyle={styles.button2}
+                    titleStyle={styles.buttonText}
+                />
                 <StatusBar style="auto  " />
-
             </View>
-        </ImageBackground>
+            
 
     );
 }
@@ -48,7 +35,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-
+        backgroundColor: '#363533'
     },
     text: {
         fontWeight: 'bold',
@@ -68,9 +55,15 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: '#237834',
+        borderRadius: 10,
+        marginHorizontal: 100,
+        marginBottom: 10
+    },
+    button2: {
+        backgroundColor: '#f7752f',
         borderRadius: 16,
         marginHorizontal: 100,
-        marginBottom: 100
+        marginBottom: 10
     },
     buttonText: {
         fontSize: 16,
