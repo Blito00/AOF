@@ -1,24 +1,29 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Image, Text, ImageBackground } from 'react-native';
-import { Button } from 'react-native-elements';
+import { View, Image, Text, TouchableOpacity } from 'react-native';
 import { moderateScale, scale, verticalScale, ScaledSheet } from 'react-native-size-matters';
-
+import PasswordInput from './PasswordInput.jsx';
+import EmailInput from './EmailInput.jsx';
+import LoginButton from './LoginButton.jsx';
 
 // const scaledWidth = scale(200);
 // const scaledHeight = verticalScale(950);
 // const scaledFontSize = moderateScale(16);
 // const scaledMargin = moderateScale(10);
 
-
 const Login = () => {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [password, setPassword, showPassword] = useState('');
 
     const handleLogin = () => {
         // Aquí puedes implementar la lógica para autenticar al usuario
         console.log('Email:', email);
         console.log('Password:', password);
     };
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+
 
     return (
 
@@ -30,29 +35,15 @@ const Login = () => {
             </View>
             <View>
                 <Text style={styles.text}>Ingrese su correo:</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Email"
-                    onChangeText={text => setEmail(text)}
-                    value={email}
-                />
+                <EmailInput />
                 <Text style={styles.text}>Ingrese su contraseña:</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Contraseña"
-                    onChangeText={text => setPassword(text)}
-                    value={password}
-                    secureTextEntry
-                />
-                <Button
-                    title="Ingresar"
-                    onPress={handleLogin}
-                    buttonStyle={styles.button}
-                    titleStyle={styles.buttonText}
-                />
-                <Text style={styles.LinkText}>
-                    ¿No tienes una cuenta? Registrate
-                </Text>
+                <PasswordInput />
+                <LoginButton />
+                <TouchableOpacity>
+                    <Text style={styles.LinkText}>
+                        Registrate!
+                    </Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -64,54 +55,26 @@ const styles = ScaledSheet.create({
         justifyContent: 'center',
         backgroundColor: '#363533'
     },
-    containerInput: {
-        flex: 1,
-        justifyContent: 'center',
-    },
-    input: {
-        height: '80vs',
-        width: '300@s',
-        margin: '10@ms',
-        marginLeft: '25@s',
-        padding: '10@ms',
-        borderRadius: 20,
-        backgroundColor: '#FFFF',
-        borderWidth: '1.25@ms',
-        borderColor: '#f7752f',
-    },
-    button: {
-        backgroundColor: '#f7752f',
-        borderRadius: 16,
-        marginHorizontal: '100@ms',
-        marginBottom: '100@ms',
-        marginTop: '30@ms'
-    },
-    buttonText: {
-        fontSize: '16@ms',
-        fontWeight: 'bold',
-        color: 'black'
-    },
     imageContainer: {
         alignItems: 'center',
         marginBottom: '10@ms'
     },
     img: {
-        width: '200@s',
+        width: '180@s',
         height: undefined,
         aspectRatio: 1,
         resizeMode: 'contain',
-        borderRadius: 20,
         marginTop: '40@ms'
     },
     text: {
-        marginLeft: 20,
+        marginLeft: '20@ms',
         fontFamily: 'Roboto',
         fontWeight: 'bold',
         fontSize: 20,
         color: 'white'
     },
     LinkText: {
-        marginLeft: 60,
+        marginLeft: '150@ms',
         fontFamily: 'Roboto',
         fontWeight: 'bold',
         fontSize: 15,
