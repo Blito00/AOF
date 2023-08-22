@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import { View, TextInput } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome'; // Importa el icono que desees (en este caso, FontAwesome)
 import { IconButton } from 'react-native-paper';
 import { ScaledSheet } from 'react-native-size-matters';
 
@@ -13,6 +14,7 @@ const PasswordInput = () => {
 
     return (
         <View style={styles.inputContainer}>
+            <Icon name="lock" size={20} color="#b3b3b3" style={styles.icon} />
             <TextInput
                 style={styles.input}
                 placeholder="Contraseña"
@@ -33,8 +35,8 @@ const styles = ScaledSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: '0.80@ms',
-        borderColor: '#f7752f',
-        borderRadius: 20,
+        borderColor: "#b3b3b3",
+        borderRadius: 10,
         backgroundColor: '#FFFF',
         height: '45@vs',
         width: '300@s',
@@ -44,6 +46,9 @@ const styles = ScaledSheet.create({
     },
     input: {
         flex: 1,
+    },
+    icon: {
+        marginRight: '10@ms',
     },
 });
 

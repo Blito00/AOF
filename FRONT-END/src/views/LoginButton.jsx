@@ -15,16 +15,16 @@ const LoginButton = ({ handleLogin }) => {
 
 const styles = ScaledSheet.create({
     button: {
-        backgroundColor: '#f7752f',
-        borderRadius: 16,
+        backgroundColor: 'black',
+        borderRadius: 20,
         marginHorizontal: '100@ms',
-        marginBottom: '100@ms',
+        marginBottom: '70@ms',
         marginTop: '30@ms'
     },
     buttonText: {
         fontSize: '16@ms',
         fontWeight: 'bold',
-        color: 'black'
+        color: 'white'
     },
 });
 

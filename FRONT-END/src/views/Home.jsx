@@ -2,7 +2,15 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, ImageBackground, Image } from 'react-native';
 import { Button } from 'react-native-elements';
 import { ScaledSheet } from 'react-native-size-matters';
+import * as Font from 'expo-font';
 
+async function loadFonts() {
+    await Font.loadAsync({
+        'Product-Sans': require('../../assets/fonts/Product-Sans-Bold.ttf')
+    });
+}
+
+loadFonts()
 
 export default function Home({ navigation }) {
 
@@ -39,23 +47,21 @@ const styles = ScaledSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#024c8b'
+        backgroundColor: '#c8eefa',
     },
     buttonContainer: {
         flexDirection: 'column',
         flex: 1,
     },
     text: {
-        fontWeight: 'bold',
-        fontSize: '25@s',
-        color: "#FFFF",
-        fontFamily: "Roboto",
+        fontSize: '30@s',
+        color: "#020f08",
+        fontFamily: 'Product-Sans',
     },
     text1: {
         fontWeight: 'bold',
         fontSize: '15@s',
         color: "#ffff",
-        fontFamily: "Roboto",
     },
     button: {
         backgroundColor: '#237834',
@@ -73,7 +79,7 @@ const styles = ScaledSheet.create({
     },
     buttonText: {
         fontSize: '30@s',
-        fontWeight: 'lighter',
+        fontFamily: 'Product-Sans',
     },
     image: {
         width: '300@s',
