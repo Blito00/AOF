@@ -31,7 +31,7 @@ export default function Home({ navigation }) {
                     titleStyle={styles.buttonText}
                 />
                 <Button
-                    onPress={() => { navigation.navigate('login') }}
+                    onPress={() => { navigation.navigate('register') }}
                     title="Buscar"
                     buttonStyle={styles.button2}
                     titleStyle={styles.buttonText}

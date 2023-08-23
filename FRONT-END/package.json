@@ -13,6 +13,8 @@
     "@expo/webpack-config": "^0.17.0",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
+    "@rneui/base": "github:react-native-elements/react-native-elements#base",
+    "@rneui/themed": "^4.0.0-rc.8",
     "antd": "^5.8.4",
     "expo": "^49.0.0",
     "expo-linear-gradient": "~12.3.0",
