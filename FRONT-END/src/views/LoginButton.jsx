@@ -1,30 +1,41 @@
 import React from 'react';
-import { Button } from 'react-native-elements';
+import { TouchableOpacity, Text, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
 
 const LoginButton = ({ handleLogin }) => {
     return (
-        <Button
-            title="Ingresar"
-            onPress={handleLogin}
-            buttonStyle={styles.button}
-            titleStyle={styles.buttonText}
-        />
+        <View style={styles.container}>
+            <TouchableOpacity
+                title="Ingresar"
+                onPress={handleLogin}
+                style={styles.button}
+            >
+                <Text style={styles.buttonText}>
+                    Ingresar
+                </Text>
+            </TouchableOpacity>
+        </View>
     );
 };
 
 const styles = ScaledSheet.create({
+    container: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     button: {
         backgroundColor: 'black',
         borderRadius: 20,
-        marginHorizontal: '100@ms',
-        marginBottom: '70@ms',
-        marginTop: '30@ms'
+        width: 150, // No es necesario usar '@s' aquí
+        justifyContent: 'center', // Puedes quitar esto si usas solo alignItems: 'center'
+        alignItems: 'center',
+        marginTop: '30@s'
     },
     buttonText: {
-        fontSize: '16@ms',
+        fontSize: 16, // No es necesario usar '@ms' aquí
         fontWeight: 'bold',
-        color: 'white'
+        color: 'white',
+        padding: 10, // No es necesario usar '@s' aquí
     },
 });
 

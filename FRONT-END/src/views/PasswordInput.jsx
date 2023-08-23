@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { View, TextInput } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Importa el icono que desees (en este caso, FontAwesome)
+import { View } from 'react-native';
 import { IconButton } from 'react-native-paper';
 import { ScaledSheet } from 'react-native-size-matters';
+import { Input } from 'react-native-elements/dist/input/Input';
 
 const PasswordInput = () => {
     const [password, setPassword] = useState('');
@@ -14,17 +14,20 @@ const PasswordInput = () => {
 
     return (
         <View style={styles.inputContainer}>
-            <Icon name="lock" size={20} color="#b3b3b3" style={styles.icon} />
-            <TextInput
-                style={styles.input}
+            <Input
+                leftIcon={{ type: 'material-icons', name: 'lock-outline', color: "#FFFF", size: 22 }}
                 placeholder="Contraseña"
                 onChangeText={text => setPassword(text)}
                 value={password}
                 secureTextEntry={!showPassword}
+                placeholderTextColor="white"
+                inputStyle={{color: 'white'}}
             />
             <IconButton
-                icon={showPassword ? 'eye-off' : 'eye'}
+                style={styles.icon}
+                icon={showPassword ? 'eye-off-outline' : 'eye-outline'}
                 onPress={togglePasswordVisibility}
+                iconColor='white'
             />
         </View>
     );
@@ -34,10 +37,6 @@ const styles = ScaledSheet.create({
     inputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        borderWidth: '0.80@ms',
-        borderColor: "#b3b3b3",
-        borderRadius: 10,
-        backgroundColor: '#FFFF',
         height: '45@vs',
         width: '300@s',
         margin: '10@ms',
@@ -46,9 +45,15 @@ const styles = ScaledSheet.create({
     },
     input: {
         flex: 1,
+        color: 'white',
+        paddingRight: 40,
     },
     icon: {
-        marginRight: '10@ms',
+        position: 'absolute',
+        right: '15@s',
+        top: '0@vs',
+        color: '',
+        margin: '0@ms'
     },
 });
 

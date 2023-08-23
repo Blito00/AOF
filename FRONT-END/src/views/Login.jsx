@@ -1,64 +1,52 @@
 import React, { useState } from 'react';
-import { View, Image, Text, TouchableOpacity, ImageBackground, KeyboardAvoidingView } from 'react-native';
+import { View, Image, Text, Backgr } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
+import { CheckBox } from 'react-native-elements';
 import PasswordInput from './PasswordInput.jsx';
 import EmailInput from './EmailInput.jsx';
 import LoginButton from './LoginButton.jsx';
-import * as Font from 'expo-font';
-
-async function loadFonts() {
-    await Font.loadAsync({
-        'Product-Sans': require('../../assets/fonts/Product-Sans-Bold.ttf')
-    });
-}
-
-loadFonts();
-
+import Addons from './Addons.jsx';
 // const scaledWidth = scale(200);
 // const scaledHeight = verticalScale(950);
 // const scaledFontSize = moderateScale(16);
 // const scaledMargin = moderateScale(10);
 
 const Login = () => {
-
-
-
-
     return (
 
-        <ImageBackground
-            source={require('../../assets/img/diseno3.png')}
-            style={styles.container}
-            blurRadius={0}>
-            <View style={styles.container}>
+
+        <View style={styles.container}>
+            <View>
                 <View style={styles.imageContainer}>
                     <Image source={require('../../assets/img/ISOTIPO-AOF-BLANCO--2.png')} style={styles.img} />
                 </View>
-                <View style={styles}>
+                <View style={styles.inputs}>
                     <Text style={styles.text}>Ingrese su correo:</Text>
                     <EmailInput />
                     <Text style={styles.text}>Ingrese su contraseña:</Text>
                     <PasswordInput />
+                    <Addons />
                     <LoginButton />
                     <Image source={require('../../assets/img/empleo-blanco.png')} style={styles.img3} />
                 </View>
-            </View >
+            </View>
+        </View >
 
-        </ImageBackground >
     );
-    }
+}
 
 const styles = ScaledSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: 'rgba(2,96,182,1)',
     },
     imageContainer: {
         alignItems: 'center',
     },
     img: {
         width: '180@s',
-        height: undefined,
+        height: '20px',
         aspectRatio: 1,
         resizeMode: 'contain',
         marginBottom: '50@ms'
@@ -75,6 +63,13 @@ const styles = ScaledSheet.create({
         fontSize: 25,
         color: '#FFFF',
         borderColor: '#000000'
+    },
+    checkbox: {
+        borderColor: 'rgba(2,96,182,1)',
+        backgroundColor: 'rgba(2,96,182,1)',
+        width: '120@s',
+        marginLeft: '20@s',
+        fontFamily: 'Product-Sans'
     },
     LinkText: {
         marginLeft: "120@ms",

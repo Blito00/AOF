@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import { TextInput, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { View } from 'react-native';
+import { Input } from 'react-native-elements';
 import { ScaledSheet } from 'react-native-size-matters';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const EmailInput = () => {
-    const [email, setEmail] = useState(''); // Estado para almacenar el correo electrónico ingresado
+    const [email, setEmail] = useState('');
 
     return (
         <View style={styles.inputContainer}>
-            <Icon name="user" size={20} color="#b3b3b3" style={styles.icon} />
-            <TextInput
-                style={styles.input}
-                placeholder="Email"
-                value={email} // Asigna el valor del estado al campo de entrada
-                onChangeText={text => setEmail(text)} // Actualiza el estado cuando el texto cambia
-                keyboardType="email-address" // Configura el tipo de teclado para correo electrónico
-                autoCapitalize="none" // Desactiva la auto-capitalización
-                autoCorrect={false} // Desactiva la corrección automática
+            <Input
+                leftIcon={<Icon name="user-o" size={20} color="white" />}
+                placeholder='Email'
+                value={email}
+                onChangeText={text => setEmail(text)}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false}
+                inputStyle={styles.input}
+                placeholderTextColor="white"
             />
         </View>
     );
@@ -31,16 +33,10 @@ const styles = ScaledSheet.create({
         margin: '10@ms',
         marginLeft: '25@s',
         padding: '10@ms',
-        borderRadius: 10,
-        backgroundColor: '#FFFF',
-        borderWidth: '0.80@ms',
-        borderColor: "#b3b3b3"
     },
     input: {
         flex: 1,
-    },
-    icon: {
-        marginRight: '10@ms',
+        color: 'white',
     },
 });
 

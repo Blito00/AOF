@@ -1,19 +1,21 @@
+import { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, ImageBackground, Image } from 'react-native';
 import { Button } from 'react-native-elements';
 import { ScaledSheet } from 'react-native-size-matters';
-import * as Font from 'expo-font';
-
-async function loadFonts() {
-    await Font.loadAsync({
-        'Product-Sans': require('../../assets/fonts/Product-Sans-Bold.ttf')
-    });
-}
-
-loadFonts()
+import Splash from './Splash';
 
 export default function Home({ navigation }) {
+    const [carga,setCarga] = useState(true);
+    useEffect(() => {
+        setTimeout(() => {
+            setCarga(false)
+        }, 3000);
+    }, [])
 
+    if (carga) {
+        return <Splash/>
+    }
 
     return (
         <View style={styles.container}>
@@ -33,6 +35,7 @@ export default function Home({ navigation }) {
                     title="Buscar"
                     buttonStyle={styles.button2}
                     titleStyle={styles.buttonText}
+
                 />
             </View>
 
@@ -56,7 +59,7 @@ const styles = ScaledSheet.create({
     text: {
         fontSize: '30@s',
         color: "#020f08",
-        fontFamily: 'Product-Sans',
+        fontFamily: 'Product-Sans'
     },
     text1: {
         fontWeight: 'bold',
@@ -79,7 +82,7 @@ const styles = ScaledSheet.create({
     },
     buttonText: {
         fontSize: '30@s',
-        fontFamily: 'Product-Sans',
+        fontFamily: 'Product-Sans'
     },
     image: {
         width: '300@s',
