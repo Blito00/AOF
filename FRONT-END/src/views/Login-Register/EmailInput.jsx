@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Input } from '@rneui/themed';
 import { ScaledSheet } from 'react-native-size-matters';
-import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 const EmailInput = () => {
     const [email, setEmail] = useState('');
@@ -10,7 +10,7 @@ const EmailInput = () => {
     return (
         <View style={styles.inputContainer}>
             <Input
-                leftIcon={<Icon name="user-o" size={20} color="white" />}
+                leftIcon={{type: 'font-awesome-5', name: 'at', color: "#FFFF", size: 22  }}
                 placeholder='Email'
                 value={email}
                 onChangeText={text => setEmail(text)}
@@ -37,6 +37,7 @@ const styles = ScaledSheet.create({
     input: {
         flex: 1,
         color: 'white',
+
     },
 });
 

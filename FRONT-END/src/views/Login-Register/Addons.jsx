@@ -31,17 +31,17 @@ const Addons = () => {
 
 const styles = ScaledSheet.create({
     checkbox: {
-        borderColor: 'rgba(2,96,182,1)',
-        backgroundColor: 'rgba(2,96,182,1)',
+        borderColor: 'rgba(255, 255, 255, 0)',
+        backgroundColor: 'rgba(255, 255, 255, 0)',
         width: '120@s',
         marginLeft: '20@s',
     },
     forgotpw: {
         color: '#ff221f',
-        marginLeft: '220@s',
+        marginLeft: '210@s',
         bottom: '32.5@s',
         fontFamily: 'Product-Sans',
-        fontSize: 16
+        fontSize: 16,
     },
 });
 

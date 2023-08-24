@@ -11,7 +11,7 @@ const AOF = () => {
                 style={styles.backgroundImage}
             >
                 <View style={styles.imageContainer}>
-                    <Image source={require('../../assets/img/image.png')} style={styles.centeredImage} />
+                    <Image source={require('../../assets/img/LOGO-AOF-BLANCO.png')} style={styles.centeredImage} />
                 </View>
                 <View style={styles.loadingContainer}>
                     <ActivityIndicator size="large" color="white" />

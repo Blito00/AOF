@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView, Image } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
 import { Input } from '@rneui/base';
-import EmailInput from './EmailInput';
-import PasswordInput from './PasswordInput';
-import RePasswordInput from './RePasswordInput';
+import EmailInput from './Login-Register/EmailInput';
+import PasswordInput from './Login-Register/PasswordInput';
+import RePasswordInput from './Login-Register/RePasswordInput';
+import NameInput from './Login-Register/NameInput';
+import SurNameInput from './Login-Register/SurNameInput';
+import RegisterButton from './Login-Register/RegisterButton';
 
 const Register = () => {
     const [name, setName] = useState('')
@@ -18,32 +21,28 @@ const Register = () => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.inputContainer}>
-                <Text style={styles.text}>Ingrese su nombre(s):</Text>
-                <Input
-                    style={styles.input}
-                    placeholder="Nombre(s)"
-                    value={name}
-                    onChangeText={text => setName(text)}
-                    inputStyle={styles.input}
-                    placeholderTextColor="white"
-                />
-                <Text style={styles.text}>Ingrese su apellido(s):</Text>
-                <Input
-                    style={styles.input}
-                    placeholder="Apellido(s)"
-                    value={surName}
-                    onChangeText={text => setSurName(text)}
-                    inputStyle={styles.input}
-                    placeholderTextColor="white"
-                />
-            </View>
-            <Text style={styles.text}>Ingrese su correo:</Text>
-            <EmailInput />
-            <Text style={styles.text}>Ingrese su contraseña:</Text>
-            <PasswordInput />
-            <Text style={styles.text}>Ingrese de nuevo su contraseña:</Text>
-            <RePasswordInput />
+            <Image
+                source={require('../../assets/img/LOGO-AOF-BLANCO.png')}
+                style={styles.img}
+            />
+            <ScrollView
+                keyboardShouldPersistTaps="always"
+                contentContainerStyle={styles.scrollContent}
+            >
+                <View style={styles.inputWrapper}>
+                    <Text style={styles.text1}>Ingrese su nombre(s):</Text>
+                    <NameInput />
+                    <Text style={styles.text}>Ingrese su apellido(s):</Text>
+                    <SurNameInput />
+                    <Text style={styles.text}>Ingrese su correo:</Text>
+                    <EmailInput />
+                    <Text style={styles.text}>Ingrese su contraseña:</Text>
+                    <PasswordInput />
+                    <Text style={styles.text}>Ingrese de nuevo su contraseña:</Text>
+                    <RePasswordInput />
+                </View>
+                <RegisterButton/>
+            </ScrollView>
         </View>
     );
 };
@@ -55,7 +54,7 @@ const styles = ScaledSheet.create({
         backgroundColor: 'rgba(2,96,182,1)',
     },
     inputContainer: {
-        flexDirection: 'row',
+        flex: 1,
         alignItems: 'center',
         height: '45@vs',
         width: '300@s',
@@ -67,12 +66,39 @@ const styles = ScaledSheet.create({
         flex: 1,
         color: 'white',
     },
+    img: {
+        marginHorizontal: '90@ms',
+        width: '180@s',
+        height: '100@',
+        aspectRatio: 1,
+        resizeMode: 'contain',
+        marginBottom: '-40@ms'
+    },
     text: {
+        marginLeft: '20@ms',
+        fontFamily: 'Product-Sans',
+        fontSize: 20,
+        color: '#FFFF',
+        borderColor: '#000000'
+    },
+    text1: {
         marginLeft: '20@ms',
         fontFamily: 'Product-Sans',
         fontSize: 25,
         color: '#FFFF',
-        borderColor: '#000000'
+        borderColor: '#000000',
+        marginTop: '10@ms'
+    },
+    scrollContent: {
+        flexGrow: 1,
+        paddingBottom: 0, // Adjust this value as needed
+    },
+    inputWrapper: {
+        borderRadius: 20,
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        marginVertical: 5,
+        marginLeft: '10@ms',
+        marginRight: '10@ms'
     }
 });
 
