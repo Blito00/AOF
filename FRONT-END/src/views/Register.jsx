@@ -30,18 +30,19 @@ const Register = () => {
                 contentContainerStyle={styles.scrollContent}
             >
                 <View style={styles.inputWrapper}>
-                    <Text style={styles.text1}>Ingrese su nombre(s):</Text>
+                    <Text style={styles.text1}>Ingrese su nombre(s)</Text>
                     <NameInput />
-                    <Text style={styles.text}>Ingrese su apellido(s):</Text>
+                    <Text style={styles.text}>Ingrese su apellido(s)</Text>
                     <SurNameInput />
-                    <Text style={styles.text}>Ingrese su correo:</Text>
+                    <Text style={styles.text}>Ingrese su correo</Text>
                     <EmailInput />
-                    <Text style={styles.text}>Ingrese su contraseña:</Text>
+                    <Text style={styles.text}>Ingrese su contraseña</Text>
                     <PasswordInput />
                     <Text style={styles.text}>Ingrese de nuevo su contraseña:</Text>
                     <RePasswordInput />
                 </View>
                 <RegisterButton/>
+                <Image source={require('../../assets/img/empleo-blanco.png')} style={styles.footer} />
             </ScrollView>
         </View>
     );
@@ -74,6 +75,12 @@ const styles = ScaledSheet.create({
         resizeMode: 'contain',
         marginBottom: '-40@ms'
     },
+    footer: {
+        width: '350@s',
+        height: '31@vs',
+        resizeMode: 'contain',
+        marginTop: '50@ms'
+    },
     text: {
         marginLeft: '20@ms',
         fontFamily: 'Product-Sans',
@@ -84,10 +91,10 @@ const styles = ScaledSheet.create({
     text1: {
         marginLeft: '20@ms',
         fontFamily: 'Product-Sans',
-        fontSize: 25,
+        fontSize: 20,
         color: '#FFFF',
         borderColor: '#000000',
-        marginTop: '10@ms'
+        marginTop: '15@ms'
     },
     scrollContent: {
         flexGrow: 1,

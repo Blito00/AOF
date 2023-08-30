@@ -6,7 +6,8 @@ import PasswordInput from './Login-Register/PasswordInput.jsx';
 import LoginButton from './Login-Register/LoginButton.jsx';
 import Addons from './Login-Register/Addons.jsx';
 
-const Login = () => {
+
+const Login = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.imageContainer}>
@@ -25,14 +26,17 @@ const Login = () => {
                     <Addons />
                 </View>
                 <LoginButton />
-                <Text>
-                    ¿No tienes una cuenta?
-                    <TouchableOpacity>
-                        <Text>
+                <View style={styles.inlineTextContainer}>
+                    <Text style={styles.noAccountText}>
+                        ¿No tienes una cuenta?
+                    </Text>
+                    <TouchableOpacity
+                        onPress={() => { navigation.navigate('register') }}>
+                        <Text style={styles.createAccountLink}>
                             Crea una!
                         </Text>
                     </TouchableOpacity>
-                </Text>
+                </View>
                 <Image source={require('../../assets/img/empleo-blanco.png')} style={styles.footer} />
             </ScrollView>
 
@@ -89,8 +93,26 @@ const styles = ScaledSheet.create({
         backgroundColor: 'rgba(255, 255, 255, 0.1)',
         marginVertical: 5,
         marginLeft: '10@ms',
-        marginRight: '10@ms'
-    }
+        marginRight: '10@ms',
+    },
+    inlineTextContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: '10@ms'
+    },
+    noAccountText: {
+        color: 'white',
+        fontSize: 15,
+        fontFamily: 'Product-Sans'
+    },
+    createAccountLink: {
+        color: '#FFCA28',
+        textDecorationLine: 'underline',
+        marginLeft: 5,
+        fontFamily: 'Product-Sans',
+        fontSize: 18,
+    },
 });
 
 export default Login;

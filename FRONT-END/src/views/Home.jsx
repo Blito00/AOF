@@ -3,20 +3,9 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, ImageBackground, Image } from 'react-native';
 import { Button } from 'react-native-elements';
 import { ScaledSheet } from 'react-native-size-matters';
-import Splash from './Splash';
+
 
 export default function Home({ navigation }) {
-    const [carga,setCarga] = useState(true);
-    useEffect(() => {
-        setTimeout(() => {
-            setCarga(false)
-        }, 3000);
-    }, [])
-
-    if (carga) {
-        return <Splash/>
-    }
-
     return (
         <View style={styles.container}>
             <Image
@@ -31,7 +20,7 @@ export default function Home({ navigation }) {
                     titleStyle={styles.buttonText}
                 />
                 <Button
-                    onPress={() => { navigation.navigate('register') }}
+                    onPress={() => { navigation.navigate('unlock') }}
                     title="Buscar"
                     buttonStyle={styles.button2}
                     titleStyle={styles.buttonText}
@@ -50,7 +39,7 @@ const styles = ScaledSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#c8eefa',
+        backgroundColor: 'rgba(2,96,182,1)',
     },
     buttonContainer: {
         flexDirection: 'column',
