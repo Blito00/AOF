@@ -59,7 +59,7 @@ const styles = ScaledSheet.create({
         aspectRatio: 1,
         resizeMode: 'contain',
         marginBottom: '30@ms',
-        marginTop: '80@ms'
+        marginTop: '65@ms'
     },
     footer: {
         width: '350@s',
@@ -87,8 +87,6 @@ const styles = ScaledSheet.create({
         paddingBottom: 10, // Adjust this value as needed
     },
     inputWrapper: {
-        shadowColor: 'white',
-        shadowOpacity: 10,
         borderRadius: 20,
         backgroundColor: 'rgba(255, 255, 255, 0.1)',
         marginVertical: 5,

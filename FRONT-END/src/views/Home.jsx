@@ -1,39 +1,28 @@
-import { useEffect, useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { Text, View, ImageBackground, Image } from 'react-native';
-import { Button } from 'react-native-elements';
+import React from 'react';
+import { View, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, Button, Icon } from '@rneui/themed';
 import { ScaledSheet } from 'react-native-size-matters';
+import Cards from './Cards';
 
-
-export default function Home({ navigation }) {
+export default function Home() {
     return (
         <View style={styles.container}>
             <Image
-                source={require('../../assets/img/LOGO-AOF2.png')}
-                style={styles.image} />
+                source={require('../../assets/img/LOGO-AOF-BLANCO.png')}
+                style={styles.image}
+            />
             <Text style={styles.text}>Bienvenid@ a Oficios Formosa!</Text>
-            <View style={styles.buttonContainer}>
-                <Button
-                    onPress={() => { navigation.navigate('login') }}
-                    title="Ofrecer!"
-                    buttonStyle={styles.button}
-                    titleStyle={styles.buttonText}
-                />
-                <Button
-                    onPress={() => { navigation.navigate('unlock') }}
-                    title="Buscar"
-                    buttonStyle={styles.button2}
-                    titleStyle={styles.buttonText}
+            <ScrollView>
+                <View style={styles.card}>
+                    <Cards />
+                </View>
+            </ScrollView>
 
-                />
-            </View>
 
-            <StatusBar style="auto  " />
         </View>
-
-
     );
 }
+
 const styles = ScaledSheet.create({
     container: {
         flex: 1,
@@ -42,18 +31,19 @@ const styles = ScaledSheet.create({
         backgroundColor: 'rgba(2,96,182,1)',
     },
     buttonContainer: {
-        flexDirection: 'column',
+        flexDirection: 'row',
         flex: 1,
     },
     text: {
         fontSize: '30@s',
-        color: "#020f08",
-        fontFamily: 'Product-Sans'
+        color: "#FFFF",
+        fontFamily: 'Product-Sans',
+        marginTop: '-60@ms'
     },
     text1: {
         fontWeight: 'bold',
         fontSize: '15@s',
-        color: "#ffff",
+        color: "#fffff",
     },
     button: {
         backgroundColor: '#237834',
@@ -74,9 +64,10 @@ const styles = ScaledSheet.create({
         fontFamily: 'Product-Sans'
     },
     image: {
-        width: '300@s',
-        height: '300@vs',
+        width: '200@s',
+        height: '200@vs',
         resizeMode: 'contain',
+        marginTop: '-40@ms'
     },
-});
 
+});
