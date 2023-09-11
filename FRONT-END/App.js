@@ -27,10 +27,9 @@ export default function App() {
           <Stack.Screen name="login" options={{ headerShown: false }} component={Login} />
           <Stack.Screen name="register" options={{ headerShown: false }} component={Register} />
           <Stack.Screen name="unlock" options={{ headerShown: false }} component={Unlock} />
-
         </Stack.Navigator>
       </NavigationContainer>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </>
   );
 }
