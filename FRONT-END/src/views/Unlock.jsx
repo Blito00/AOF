@@ -14,7 +14,7 @@ const Unlock = ({ navigation }) => {
     const authenticateWithBiometrics = async () => {
         try {
             const { success } = await LocalAuthentication.authenticateAsync({
-                promptMessage: 'Utiliza tu huella dactilar',
+                promptMessage: 'Utilice su huella dactilar o su PIN',
             });
 
             if (success) {
